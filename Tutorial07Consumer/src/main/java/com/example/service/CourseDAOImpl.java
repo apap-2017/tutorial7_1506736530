@@ -32,7 +32,7 @@ public class CourseDAOImpl implements CourseDAO
 	{
 		CourseModel course =
 		restTemplate.getForObject(
-		"http://localhost:8181/rest/course/view/"+id,
+		"http://localhost:8080/rest/course/view/"+id,
 		CourseModel.class);
 		System.out.println("Course " + course);
 		return course;
@@ -43,7 +43,7 @@ public class CourseDAOImpl implements CourseDAO
 	{
 		ResponseEntity<List<CourseModel>> course =
 				restTemplate.exchange(
-				"http://localhost:8181/rest/course/viewall", HttpMethod.GET, null, new ParameterizedTypeReference<List<CourseModel>>() {
+				"http://localhost:8080/rest/course/viewall", HttpMethod.GET, null, new ParameterizedTypeReference<List<CourseModel>>() {
 	            });
 		List<CourseModel> courses = course.getBody();
 		System.out.println("Course " + courses);

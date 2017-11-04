@@ -31,7 +31,7 @@ public class StudentDAOImpl implements StudentDAO
 	{
 		StudentModel student =
 		restTemplate.getForObject(
-		"http://localhost:8181/rest/student/view/"+npm,
+		"http://localhost:8088/rest/student/view/"+npm,
 		StudentModel.class);
 		return student;
 	}
@@ -41,7 +41,7 @@ public class StudentDAOImpl implements StudentDAO
 	{
 		ResponseEntity<List<StudentModel>> student =
 				restTemplate.exchange(
-				"http://localhost:8181/rest/student/viewall", HttpMethod.GET, null, new ParameterizedTypeReference<List<StudentModel>>() {
+				"http://localhost:8080/rest/student/viewall", HttpMethod.GET, null, new ParameterizedTypeReference<List<StudentModel>>() {
 	            });
 		List<StudentModel> students = student.getBody();
 				return students;
